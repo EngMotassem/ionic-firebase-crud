@@ -14,5 +14,43 @@
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
   </p>
 
+  <ion-card>
+    <ion-card-header>
+      enter product details
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+
+          <ion-label color="primary" >product name</ion-label>
+          <ion-input placeholder="Text" [(ngModel)]="product.productname"></ion-input>
+      
+      </ion-item>
+      <ion-item>
+
+          <ion-label color="primary">product price</ion-label>
+          <ion-input placeholder="number" [(ngModel)]="product.price"></ion-input>
+      
+      </ion-item>
+      <ion-item>
+        <button ion-button (click)="addnewProduct()"> add product </button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+      <ion-item *ngFor="let item of prodcuts" >
+        <h2> key : {{item?.$key}}</h2>
+          <h2>Item Name: {{item.productname}}</h2>
+          <h3>Amount: {{item.price}}</h3>
+          <button  color="danger"  ion-button   (click)="delProduct(item)">   <ion-icon name="trash"></ion-icon>
+delete </button>
+          <button ion-button color="secondary"  (click)="details(item)"> more  </button>
+
+          
+          </ion-item>
+    
+    </ion-list>
+    
+
   <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
