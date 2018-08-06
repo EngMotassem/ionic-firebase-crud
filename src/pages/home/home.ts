@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { DbService } from '../../app/services/db.service';
 import { AngularFireDatabase,AngularFireList} from 'angularfire2/database';
 
@@ -22,14 +22,14 @@ export class HomePage {
 
   key : string
 
-  constructor(public navCtrl: NavController,private dbservice:DbService) {
+  constructor(public navCtrl: NavController,private dbservice:DbService,private alertCtrl:AlertController) {
 
     
 
   }
 
-  addnewProduct(){
-    this.dbservice.addproduct(this.product)
+  addnewProduct(p:Product){
+    this.dbservice.addproduct(p)
     //console.log(this.product.$key)
 
    // console.log(this.prodcuts=this.dbservice.getall())
@@ -53,6 +53,34 @@ export class HomePage {
   delProduct(p:Product){
 
     this.dbservice.deleteitem(p.$key)
+  }
+
+
+  // user alert 
+
+  presentConfirm(p:Product) {
+    let alert = this.alertCtrl.create({
+      title: 'Confirm delete',
+      message: 'Do you want to remove  this item?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'remove',
+          handler: () => {
+            console.log('Buy clicked');
+
+            this.delProduct(p)
+          }
+        }
+      ]
+    });
+    alert.present();
   }
   ionViewDidLoad() {
 
@@ -90,6 +118,9 @@ this.dbservice.getall().snapshotChanges().subscribe(data=> {
   }
 
 
+  editItem(p:Product){
+    this.dbservice.updateItem(p.$key,p)
+}
 
 
 

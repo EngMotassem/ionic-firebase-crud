@@ -53,6 +53,12 @@ deleteitem(key:string){
 
 }
 
+updateItem (key:string , P:Product){
+
+    this.database.object(`shopping-list/${key}`).update(P);
+
+}
+
 getAllProducts(): Product []{
 
     
@@ -77,29 +83,7 @@ return this.itemlist
 
 addproduct(_product : Product){ 
 
-    this.shoppingItemRef$.push(_product).then((item=> {
-        _product.$key=item.key
-        console.log(_product)
-        //this.itemlist.push(items)(_product)
-        console.log(this.itemlist)
-
-        
-
-    
-    }))
-    
-
-
-/*
-    console.log(this.shoppingItemRef$.push({
-       
-        productname:_product.productname,
-        price:Number(_product.price),
-      //  $key:this.getItemKey(_product)
-        
-        
-    }).key)
-    */
+    this.shoppingItemRef$.push(_product)
 
     this.toast.create({
         message:'added success',
@@ -108,7 +92,7 @@ addproduct(_product : Product){
 
 
     
-    this.shoppingItem = {} as Product;
+   // this.shoppingItem = {} as Product;
 }
 
 getItemKey( _product : Product):string{

@@ -32,7 +32,7 @@
       
       </ion-item>
       <ion-item>
-        <button ion-button (click)="addnewProduct()"> add product </button>
+        <button ion-button (click)="addnewProduct(product)"> add product </button>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -42,9 +42,11 @@
         <h2> key : {{item?.$key}}</h2>
           <h2>Item Name: {{item.productname}}</h2>
           <h3>Amount: {{item.price}}</h3>
-          <button  color="danger"  ion-button   (click)="delProduct(item)">   <ion-icon name="trash"></ion-icon>
-delete </button>
+          <button  color="danger"  ion-button   (click)="presentConfirm(item)">   <ion-icon name="trash"></ion-icon>
+ </button>
           <button ion-button color="secondary"  (click)="details(item)"> more  </button>
+
+
 
           
           </ion-item>

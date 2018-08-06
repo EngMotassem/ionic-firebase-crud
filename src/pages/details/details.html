@@ -14,15 +14,18 @@
 
 
 <ion-content padding>
-  <ion-item>
-  {{shoppingItemId}}
-</ion-item>
-<ion-item>
-    {{shoppingitem?.price}}
-  </ion-item>
-  <ion-item>
-      {{shoppingitem?.productname}}
+    <ion-item>
+        <ion-input type="text" [value]="shoppingitem?.productname" [(ngModel)]="productname"></ion-input>
     </ion-item>
+    
+    <ion-item>
+        <ion-input type="number" [value]="shoppingitem?.price"  [(ngModel)]="productprice"></ion-input>
+    </ion-item>
+    
+    <ion-item text-center>
+      <button ion-button (click)="update()" > update</button>
+    </ion-item>
+
 
 
 </ion-content>
