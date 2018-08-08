@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FireBase_Config } from './firebase.credintals';
 import { DbService } from './services/db.service';
 import { DetailsPage } from '../pages/details/details';
+import { FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { DetailsPage } from '../pages/details/details';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+
     AngularFireModule.initializeApp(FireBase_Config),
     AngularFireDatabaseModule,
 

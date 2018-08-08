@@ -7,6 +7,7 @@ import { Product } from '../../app/models/product';
 
 import {Observable} from 'rxjs/Observable';
 import { DetailsPage } from '../details/details';
+import { FormGroup, FormControl, Validators } from '../../../node_modules/@angular/forms';
 
 
 @Component({
@@ -22,10 +23,10 @@ export class HomePage {
 
   key : string
 
+
   constructor(public navCtrl: NavController,private dbservice:DbService,private alertCtrl:AlertController) {
 
     
-
   }
 
   addnewProduct(p:Product){
@@ -85,6 +86,9 @@ export class HomePage {
   ionViewDidLoad() {
 
    //this.prodcuts=this.dbservice.getAllProducts()
+
+
+  
 
 this.dbservice.getall().snapshotChanges().subscribe(data=> {
 

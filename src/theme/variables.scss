@@ -23,8 +23,16 @@ $app-direction: ltr;
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
 
+.gray{
+  background-color: #EBE5D9;
+ }
+ .white{
+   background-color: #FFFFFF;
+ }
+ .red{
+  background-color: rgb(247, 60, 60);
 
-
+ }
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -34,14 +42,13 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
+  primary:    #0d58ee,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
   orang:rgb(235, 132, 35)
 );
-
 
 // App iOS Variables
 // --------------------------------------------------
