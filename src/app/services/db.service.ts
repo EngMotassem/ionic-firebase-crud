@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase,AngularFireList} from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 
-
-
 import { Product } from '../models/product';
 import { ToastController } from 'ionic-angular';
-import { Subscription } from '../../../node_modules/rxjs';
 
 
 
@@ -22,17 +17,14 @@ export class DbService {
   shoppingItem : Product;
 
  itemlist : Product[];
- shoppingItemSubscription: Subscription;
 
 
 
   shoppingItemRef$:AngularFireList<Product>;
 
- // shoppingItemRef$:Observable<Product[]>
 
 
 constructor(private database: AngularFireDatabase ,private toast:ToastController) { 
-   // this.shoppingItemRef$ = this.database.list('shopping-list');
 
 }
 

@@ -7,7 +7,10 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding  bg="danger">
+    <ion-searchbar [(ngModel)]="terms"></ion-searchbar>
+
   <h3>Ionic Menu Starter</h3>
 
   <p>
@@ -72,7 +75,7 @@
 
 
   <ion-list>
-      <ion-item *ngFor="let item of prodcuts" >
+      <ion-item *ngFor="let item of prodcuts | search : terms" >
         <h2> key : {{item?.$key}}</h2>
           <h2>Item Name: {{item.productname}}</h2>
           <h3>Amount: {{item.price}}</h3>

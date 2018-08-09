@@ -24,9 +24,15 @@ export class HomePage {
   key : string
 
 
+terms:string
+
+
   constructor(public navCtrl: NavController,private dbservice:DbService,private alertCtrl:AlertController) {
 
     
+  }
+  filterproducts(){
+  //  this.prodcuts.filter(callbackfn, value, index, array, thisArg)
   }
 
   addnewProduct(p:Product){

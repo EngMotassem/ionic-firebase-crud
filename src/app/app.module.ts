@@ -15,13 +15,15 @@ import { FireBase_Config } from './firebase.credintals';
 import { DbService } from './services/db.service';
 import { DetailsPage } from '../pages/details/details';
 import { FormsModule} from '@angular/forms';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    DetailsPage
+    DetailsPage,
+    SearchPipe
     
   ],
   imports: [
