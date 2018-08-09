@@ -26,31 +26,46 @@
           <ion-label color="primary" >product name</ion-label>
           <ion-input placeholder="Text" [(ngModel)]="product.productname" name="productname" #productname="ngModel"
           required
-          pattern="[a-zA-Z0-9&*]{6,20}$"
-           ></ion-input>
+          pattern="[a-zA-Z0-9 !@#$%^&*]{6,20}$"           ></ion-input>
 
            
     
       </ion-item>
-      <div color="primary" *ngIf="productname.invalid && productname.dirty">
+      <div class="error" *ngIf="productname.invalid && productname.dirty">
 
           <span >
-            <button class="red" >product name is in correct format</button> 
+            *  product name isnot  in correct format
           </span>
 
          </div>
       <ion-item>
 
           <ion-label color="primary">product price</ion-label>
-          <ion-input placeholder="number" [(ngModel)]="product.price" name="price"></ion-input>
+          <ion-input placeholder="number" [(ngModel)]="product.price" name="price"
+
+          #price="ngModel"
+
+          required
+
+          pattern="^(0|[1-9][0-9]*)$"
+
+          
+          ></ion-input>
       
       </ion-item>
+      <div class="error" *ngIf="price.invalid && price.dirty">
+
+        <span >
+          * product price  isnot  in correct format
+        </span>
+
+       </div>
 
 
       </form>
 
       <ion-item>
-        <button ion-button (click)="addnewProduct(product)"> add product </button>
+        <button ion-button (click)="addnewProduct(product)" [disabled]="!addform.valid">  add product </button>
       </ion-item>
     </ion-card-content>
   </ion-card>
